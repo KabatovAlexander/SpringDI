@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="assortment" class="com.test.collections.Assortment">
+        <constructor-arg index="0" value="Pants"/>
+        <constructor-arg index="1" value="4899"/>
+    </bean>
+
+    <!--bean for List CI-->
+    <bean id="adidas" class="com.test.collections.List.ci.Adidas">
+        <constructor-arg ref="assortment"/>
+    </bean>
+
+    <!--bean for List SI-->
+    <bean id="nike" class="com.test.collections.List.si.Nike">
+        <property name="assortment" ref="assortment"/>
+    </bean>
+
+    <!--bean for Set CI-->
+    <bean id="puma" class="com.test.collections.Set.ci.Puma">
+        <constructor-arg ref="assortment"/>
+    </bean>
+
+    <!--bean for Set SI-->
+    <bean id="reebok" class="com.test.collections.Set.si.Reebok">
+        <property name="assortment" ref="assortment"/>
+    </bean>
+
+    <bean id="lonsdale" class="com.test.collections.Map.ci.Lonsdale">
+        <constructor-arg ref="getAssortmentLonsdale"/>
+    </bean>
+
+    <!--CI Collection-->
+    <bean
+        id="collectionInjectionCI" class="com.test.collections.CollectionInjectionCI">
+        <constructor-arg index="0" ref="adidas"/>
+        <constructor-arg index="1" ref="puma"/>
+        <constructor-arg index="2" ref="getAssortmentLonsdale"/>
+    </bean>
+
+    <!--SI Collection-->
+    <!--<bean id="collectionInjectionSI" class="com.test.collections.CollectionInjectionSI">
+        <property name="list">
+                  <list>
+                      <value>sfg1</value>
+                      <value>sfg2</value>
+                      <value>sfg3</value>
+                      <value>sfg4</value>
+
+                  </list>
+        </property>
+        <property name="set">
+                  <set>
+                      <value>"eere1"</value>
+                      <value>eer2e</value>
+                      <value>eere3</value>
+                  </set>
+        </property>
+        <property name="map">
+                  <map>
+                      <entry key="1" value="kep" />
+                      <entry key="2" value="tip" />
+                      <entry key="3" value="uud" />
+                  </map>
+        </property>
+    </bean>-->
+
+</beans>

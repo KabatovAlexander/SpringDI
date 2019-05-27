@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="department" class="com.test.autowire.byName.Department" autowire="byName"/>
+
+    <bean id="employee" class="com.test.autowire.byName.Employee">
+        <property name="name" value="Yve"/>
+        <property name="age" value="32"/>
+        <property name="gender" value="m"/>
+        <property name="salary" value="3000"/>
+    </bean>
+
+    <bean id="location" class="com.test.autowire.byType.Location" autowire="byType"/>
+
+    <bean id="employeeLocation" class="com.test.autowire.byType.Employee">
+        <property name="city" value="NY"/>
+        <property name="state" value="NY state"/>
+    </bean>
+
+    <bean id="performer" class="com.test.autowire.constructor.Performer" autowire="constructor"/>
+
+    <bean id="instrument" class="com.test.autowire.constructor.Instrument">
+        <property name="name" value="Arph"/>
+    </bean>
+
+    <bean id="driver" class="com.test.autowire.no.Driver" autowire="no">
+        <property name="license" ref="license"/>
+    </bean>
+
+    <bean id="license" class="com.test.autowire.no.License">
+        <property name="number" value="L44255"/>
+    </bean>
+
+</beans>

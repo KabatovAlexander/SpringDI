@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--beans for constructor injection-->
+    <bean id = "lion" class = "com.test.object.ci.Lion"/>
+
+    <bean id = "lionLife" class = "com.test.object.ci.LionLife">
+            <constructor-arg ref = "lion"/>
+    </bean>
+
+    <!-- for setter injection-->
+    <bean id="spellChecker" class="com.test.object.si.SpellChecker"/>
+
+    <bean id = "textEditor" class = "com.test.object.si.TextEditor">
+            <property name = "spellChecker" ref = "spellChecker"/>
+    </bean>
+    <!--ForMeInformation: The difference between SI and CI is that in structure of beans
+    in CI: constructor-arg tag was used
+    in DI: property tag was used-->
+
+</beans>

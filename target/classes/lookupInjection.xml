@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="process" class="com.test.lookupInjection.RequestProcess">
+        <lookup-method name="getCoreSecond" bean="coreSecond"/>
+        <lookup-method name="getCoreFirst" bean="coreFirst"/>
+    </bean>
+
+    <bean id="coreFirst" class="com.test.lookupInjection.CoreFirst" scope="prototype"/>
+
+    <bean id="coreSecond" class="com.test.lookupInjection.CoreSecond" scope="prototype"/>
+
+</beans>
